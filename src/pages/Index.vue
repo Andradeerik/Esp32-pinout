@@ -1,8 +1,23 @@
 <template>
   <div class="fixed-center text-center">
     <h2>ESP32</h2>
-    <div class="image-map">
-      <img src="~assets/esp32.svg" alt="esp32" />
+
+    <!-- <model-viewer src="../../public/model.glb"> </model-viewer> -->
+    <!-- <model-gltf src="../../public/model.gltf"></model-gltf> -->
+    <model-viewer camera-controls src="model.gltf"> </model-viewer>
+    <model-viewer
+      camera-controls
+      src="https://firebasestorage.googleapis.com/v0/b/quasar3d-fb3c2.appspot.com/o/model3D%2Fmodel.glb?alt=media&token=3f1bffe3-9e0b-4fa3-96b8-f20c28affdcc"
+    >
+    </model-viewer>
+    <model-viewer
+      camera-controls
+      crossorigin="use-credentials"
+      src="https://cdn.glitch.com/36cb8393-65c6-408d-a538-055ada20431b/Astronaut.glb?1542147958948"
+    >
+    </model-viewer>
+    <!-- <div class="image-map">
+      <img src="../../public/assets/ESP32.svg" alt="esp32" />
       <ul>
         <li v-for="(item, i) in espPin" :key="i">
           <a
@@ -13,7 +28,7 @@
             @mouseover="upHere = true"
             @mouseleave="upHere = false"
           >
-            <!-- <span>{{ item.nam }}</span> -->
+            <span>{{ item.nam }}</span>
             <q-tooltip
               transition-show="rotate"
               transition-hide="rotate"
@@ -39,8 +54,8 @@
             </q-tooltip>
           </a>
         </li>
-        <!-- <li></li> -->
-        <!-- <li class="v">
+        <li></li>
+        <li class="v">
           <a href="#" @click="example"><span>3.3V</span></a>
         </li>
         <li class="gnd">
@@ -54,9 +69,9 @@
         </li>
         <li class="D4">
           <a href="#"><span>D4</span></a>
-        </li> -->
+        </li>
       </ul>
-    </div>
+    </div> -->
     <!-- <p v-show="active">Show</p> -->
     <!-- <div @mouseover="mouseOver">Hover over me!</div> -->
     <!-- <div @mouseover="upHere = true" @mouseleave="upHere = false"> -->
@@ -135,7 +150,14 @@
 </template>
 
 <script>
+// import modelViewer from "@google/model-viewer";
+import { ModelGltf } from "vue-3d-model";
+
 export default {
+  // components: { modelViewer },
+  components: {
+    ModelGltf
+  },
   name: "PageIndex",
   data() {
     return {
@@ -179,7 +201,7 @@ export default {
         { nam: "GND", class: "cub", posi: { l: 669, t: 71 } },
         { nam: "3.3V", class: "cub", posi: { l: 648, t: 71 } },
         { nam: "9", class: "cub", posi: { l: 627, t: 71 } },
-        { nam: "3.3V", class: "cub", posi: { l: 648, t: 71 } },
+        { nam: "3.3V", class: "cub", posi: { l: 648, t: 71 } }
       ]
     };
   },
